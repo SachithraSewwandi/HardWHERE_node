@@ -1,0 +1,44 @@
+<div ng-controller="CompanyAdd">
+    <form>
+        <table >
+            <tr>
+                <td><label >Name of the Company</label></td>
+                <td>:<input type="text" name=name ng-model="form.name"></td>
+            </tr>
+            <tr>
+                <td><label >Adress 1</label></td>
+                <td>:<input type="text" name=add1 ng-model="form.add1"></td>
+            </tr>
+            <tr>
+                <td><label >Adress 2</label></td>
+                <td>:<input type="text" name=add2 ng-model="form.add2"></td>
+            </tr>
+            <tr>
+                <td><label >Adress 3</label></td>
+                <td>:<input type="text" name=add3 ng-model="form.add3"></td>
+            </tr>
+            <tr>
+                <td><label >email</label></td>
+                <td>:<input type="email" name=email ng-model="form.email"></td>
+            </tr>
+            <tr>
+                <td><label >USer Name</label></td>
+                <td>:<input type="text" name=userName ng-model="form.UserName"></td>
+            </tr>
+            <tr>
+                <td><label >Password</label></td>
+                <td>:<input type="password" name=password ng-model="form.password"></td>
+            </tr>
+            <tr>
+                <td><label >Confirm Password</label></td>
+                <td>:<input type="password" name=confpassword ng-model="form.confpassword"></td>
+            </tr>
+            <tr>
+
+                <td><button type="submit" ng-click="save()">Submit</button></td>
+            </tr>
+        </table>
+    </form>
+
+</div>
+

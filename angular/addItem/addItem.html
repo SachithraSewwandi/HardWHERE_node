@@ -1,0 +1,22 @@
+<div ng-app="myapp.addItem" ng-controller="AddItem">
+    <table>
+        <tr>
+            <td>company Name</td>
+            <td><input type="text" ng-model="form.name"></td>
+        </tr>
+        <tr>
+            <td>Type</td>
+            <td><input type="text" ng-model="form.type"></td>
+        </tr>
+        <tr>
+            <td>Quantity</td>
+            <td><input type="text" ng-model="form.quantity"></td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><input type="text" ng-model="form.price"></td>
+        </tr>
+
+    </table>
+    <button ng-click="update()">Submit</button>
+</div>

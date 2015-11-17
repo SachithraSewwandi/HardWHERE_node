@@ -1,0 +1,8 @@
+.btn-input {
+    display: block;
+}
+
+.btn-input .btn.form-control {
+    text-align: left;
+}
+

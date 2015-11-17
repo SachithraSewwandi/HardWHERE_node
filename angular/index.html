@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/angular-route.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="addCompany/companyController.js"></script>
+    <script type="text/javascript" src="addItem/addItemController.js"></script>
+    <script type="text/javascript" src="viewCompany/viewCompanycontroller.js"></script>
+    <title>hardwhere</title>
+</head>
+<body ng-app="myapp">
+        <a href="#/AddCompany">Add Company</a><br>
+        <a href="#/">Home</a><br>
+        <a href="#/AddItem">Add Item</a><br>
+        <a href="#/viewdata">View data</a><br>
+        <div>
+            <ng-view>
+
+            </ng-view>
+        </div>
+
+
+
+</body>
+</html>
