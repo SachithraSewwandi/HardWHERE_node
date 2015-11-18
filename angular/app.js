@@ -8,8 +8,12 @@ angular.module("myapp", ['ngRoute',
     'myapp.viewCompany'])
 
     .config(['$routeProvider', function($routeProvider) {
-    $routeProvider
-        .otherwise({redirectTo: '/'});
+       // $locationProvider.html5Mode(true);
+
+        $routeProvider
+            .otherwise({redirectTo: '/'});
+
+
 }])
 
     .controller("mainCtrl",["$scope",function($scope){

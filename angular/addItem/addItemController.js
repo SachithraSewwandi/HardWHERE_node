@@ -3,7 +3,9 @@
  */
 angular.module('myapp.addItem', ['ngRoute'])
 
-    .config(['$routeProvider', function($routeProvider) {
+    .config(['$routeProvider',function($routeProvider) {
+        //$locationProvider.html5Mode(true);
+
         $routeProvider.when('/AddItem', {
             templateUrl: 'addItem/addItem.html',
             controller: 'AddItem'

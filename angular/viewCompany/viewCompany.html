@@ -2,10 +2,22 @@
     <h3>View</h3>
     <table>
         <tr>
-            name:{{names}}
+            <td> name</td>
+            <td>:{{names}}</td>
         </tr><br>
         <tr>
-            mail:{{mail}}
+            <td> mail</td>
+            <td>:{{mail}}</td>
         </tr>
+        <table>
+            <tr ng-repeat="item in items">
+                <td>{{$index}}</td>
+                <td>{{item.type}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.quantity}}</td>
+                <td><button ng-click="delete(item)">Delete Item</button></td>
+            </tr>
+        </table>
+
     </table>
 </div>

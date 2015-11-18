@@ -5,11 +5,15 @@
 angular.module('myapp.CompanyAdd', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
+
+        //$locationProvider.html5Mode(true);
+
         $routeProvider
             .when('/AddCompany', {
             templateUrl: 'addCompany/addCompany.html',
             controller: 'CompanyAdd'
         });
+
     }])
 
     .controller('CompanyAdd', ['$scope','$http',function($scope,$http) {
@@ -38,7 +42,7 @@ angular.module('myapp.CompanyAdd', ['ngRoute'])
             }).success(function(data){
                 $scope.form = {}; // clear the form so our user is ready to enter another
                 console.log("data sent");
-            }) .error(function(data) {
+            }).error(function(data) {
                 console.log('Error: ' + data);
             });
         };
