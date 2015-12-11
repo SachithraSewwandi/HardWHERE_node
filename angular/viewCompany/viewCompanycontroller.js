@@ -5,16 +5,17 @@ angular.module('myapp.viewCompany', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider
-            .when('/viewdata', {
+            .when('/viewdata/:name', {
                 templateUrl: 'viewCompany/viewCompany.html',
                 controller: 'viewCompany'
             });
     }])
 
-    .controller('viewCompany',['$scope','$http',function($scope,$http) {
+    .controller('viewCompany',['$scope','$http','$routeParams',function($scope,$http,$routeParams) {
         console.log("get");
 
-        $http.get('/viewdata')
+        $http.get('/viewdata/:name')
+        //console.log($routeParams.name)
             .success(function(data) {
                 $scope.names = data.name;
                 $scope.mail = data.email;
@@ -40,7 +41,7 @@ angular.module('myapp.viewCompany', ['ngRoute'])
             console.log(data)
             $http({
                 method: 'DELETE',
-                url: "/viewdata",
+                url: "/viewdata/:name",
                 data: $.param(item),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
@@ -49,6 +50,10 @@ angular.module('myapp.viewCompany', ['ngRoute'])
             }).error(function (data) {
                 console.log('Error: ' + data);
             })
+        }
+
+        $scope.update=function(){
+
         }
 
     }]);

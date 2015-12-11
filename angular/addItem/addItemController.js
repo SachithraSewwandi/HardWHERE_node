@@ -4,7 +4,6 @@
 angular.module('myapp.addItem', ['ngRoute'])
 
     .config(['$routeProvider',function($routeProvider) {
-        //$locationProvider.html5Mode(true);
 
         $routeProvider.when('/AddItem', {
             templateUrl: 'addItem/addItem.html',
@@ -23,7 +22,7 @@ angular.module('myapp.addItem', ['ngRoute'])
                 quantity: JSON.stringify($scope.form.quantity),
                 price: JSON.stringify($scope.form.price)
             }
-
+            $scope.form = {}; // clear the form so our user is ready to enter another
             $http({
                 method: 'POST',
                 url: "/AddItem",

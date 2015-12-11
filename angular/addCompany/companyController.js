@@ -16,11 +16,11 @@ angular.module('myapp.CompanyAdd', ['ngRoute'])
 
     }])
 
-    .controller('CompanyAdd', ['$scope','$http',function($scope,$http) {
+    .controller('CompanyAdd', ['$scope','$http','$window',function($scope,$http,$window) {
         $scope.save = function() {
 
             console.log($scope.form);
-            var data= {
+            var data1= {
                 name: JSON.stringify($scope.form.name),
                 adress1:JSON.stringify($scope.form.add1),
                 adress2:JSON.stringify($scope.form.add2),
@@ -31,19 +31,23 @@ angular.module('myapp.CompanyAdd', ['ngRoute'])
                 confpassword:JSON.stringify($scope.form.confpassword)
 
             }
-
-            console.log(data);
+            //$scope.form = {}; // clear the form so our user is ready to enter another
+            console.log(data1);
             $http({
                 method: 'POST',
                 url: "/AddCompany",
-                data: $.param(data),
+                data: $.param(data1),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
             }).success(function(data){
-                $scope.form = {}; // clear the form so our user is ready to enter another
+                var url="#/viewdata/"+(data1.name);
+                console.log(url)
+                $window.location.href=url
                 console.log("data sent");
             }).error(function(data) {
                 console.log('Error: ' + data);
             });
         };
+
+
     }]);
