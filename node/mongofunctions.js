@@ -11,8 +11,12 @@ exports.AddCompany=function(data){
         if (err) {
             console.log(err);
         } else {
-            console.log('saved successfully:', userObj);
+            //console.log('saved successfully:', userObj);
+            console.log( userObj._id);
+
         }
+        return userObj._id;
+
     });
 }
 

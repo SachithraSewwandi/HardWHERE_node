@@ -4,15 +4,17 @@
 
 angular.module('myapp.CompanyAdd', ['ngRoute'])
 
-    .config(['$routeProvider', function($routeProvider) {
+    .config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider) {
 
         //$locationProvider.html5Mode(true);
 
         $routeProvider
-            .when('/AddCompany', {
+            .when('/users/Addusers', {
             templateUrl: 'addCompany/addCompany.html',
             controller: 'CompanyAdd'
         });
+        $locationProvider.html5Mode(true);
+
 
     }])
 
@@ -35,15 +37,15 @@ angular.module('myapp.CompanyAdd', ['ngRoute'])
             console.log(data1);
             $http({
                 method: 'POST',
-                url: "/AddCompany",
+                url: "/users/Addusers",
                 data: $.param(data1),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
             }).success(function(data){
-                var url="#/viewdata/"+(data1.name);
+                var url="/users/AddItem/"+data;
                 console.log(url)
                 $window.location.href=url
-                console.log("data sent");
+                console.log(data);
             }).error(function(data) {
                 console.log('Error: ' + data);
             });

@@ -3,20 +3,24 @@
  */
 angular.module('myapp.viewCompany', ['ngRoute'])
 
-    .config(['$routeProvider', function($routeProvider) {
+    .config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider) {
         $routeProvider
-            .when('/viewdata/:name', {
+            .when('/users/viewusers/:id', {
                 templateUrl: 'viewCompany/viewCompany.html',
                 controller: 'viewCompany'
             });
+        $locationProvider.html5Mode(true);
     }])
 
     .controller('viewCompany',['$scope','$http','$routeParams',function($scope,$http,$routeParams) {
         console.log("get");
 
-        $http.get('/viewdata/:name')
+        var url="/users/viewusers/"+$routeParams.id;
+
+        $http.get("/users/viewusers/"+$routeParams.id)
         //console.log($routeParams.name)
             .success(function(data) {
+                console.log(data);
                 $scope.names = data.name;
                 $scope.mail = data.email;
                 $scope.add1=data.add1;
@@ -41,7 +45,7 @@ angular.module('myapp.viewCompany', ['ngRoute'])
             console.log(data)
             $http({
                 method: 'DELETE',
-                url: "/viewdata/:name",
+                url: "/users/viewusers/"+$routeParams.id,
                 data: $.param(item),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
@@ -52,8 +56,6 @@ angular.module('myapp.viewCompany', ['ngRoute'])
             })
         }
 
-        $scope.update=function(){
 
-        }
 
     }]);
